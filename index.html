@@ -3,151 +3,458 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cole - Digital Creator</title>
+<meta name="description" content="AYEBAZIBWE COLE Digital Learning Hub – Explore education, technology, innovation, digital transformation, revision notes and computer science.">
+<meta name="theme-color" content="#07152e">
+<title>AYEBAZIBWE COLE | Digital Learning Hub</title>
+
 <style>
-  *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
-  body{background:#0f172a;color:#e2e8f0;overflow-x:hidden}
-  /* Funny floating animation */
-  .float{position:fixed;font-size:30px;animation:float 6s infinite ease-in-out;z-index:1;pointer-events:none}
-  @keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-30px) rotate(15deg)}}
-  nav{position:fixed;top:0;width:100%;background:rgba(15,23,42,0.95);border-bottom:1px solid #1e293b;padding:12px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;z-index:100}
-  nav button{padding:10px 16px;border:1px solid #334155;border-radius:30px;background:#1e293b;color:#94a3b8;cursor:pointer;font-weight:700;transition:0.3s}
-  nav button.active{color:white;transform:scale(1.05);box-shadow:0 0 20px currentColor}
-  #b-home.active{background:#3b82f6;border-color:#3b82f6}
-  #b-about.active{background:#10b981;border-color:#10b981}
-  #b-skills.active{background:#f59e0b;border-color:#f59e0b;color:#000}
-  #b-videos.active{background:#8b5cf6;border-color:#8b5cf6}
-  #b-contact.active{background:#ec4899;border-color:#ec4899}
-  .page{display:none;min-height:100vh;padding:90px 20px 40px;animation:fade 0.6s}
-  .page.active{display:block}
-  @keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-  /* Each page same dark but different glow */
-  #home{background:radial-gradient(circle at top,#1e3a8a 0%,#0f172a 60%)}
-  #about{background:radial-gradient(circle at top,#064e3b 0%,#0f172a 60%)}
-  #skills{background:radial-gradient(circle at top,#78350f 0%,#0f172a 60%)}
-  #videos{background:radial-gradient(circle at top,#4c1d95 0%,#0f172a 60%)}
-  #contact{background:radial-gradient(circle at top,#831843 0%,#0f172a 60%)}
-  .card{max-width:900px;margin:0 auto;background:rgba(30,41,59,0.8);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:30px;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
-  .profile{text-align:center}
-  .profile img{width:170px;height:170px;border-radius:50%;border:4px solid #3b82f6;object-fit:cover;box-shadow:0 0 40px #3b82f6;animation:pulse 3s infinite}
-  @keyframes pulse{0%,100%{box-shadow:0 0 40px #3b82f6}50%{box-shadow:0 0 60px #3b82f6,0 0 80px #3b82f6}}
-  .typing{font-size:18px;color:#38bdf8;font-weight:700;margin:15px 0;min-height:28px}
-  .tag{display:inline-block;background:rgba(59,130,246,0.2);border:1px solid #3b82f6;color:#93c5fd;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;margin:4px}
-  .btn{display:inline-block;padding:14px 30px;border-radius:50px;text-decoration:none;font-weight:800;margin:10px;transition:0.3s}
-  .btn-wa{background:#25D366;color:white;box-shadow:0 0 20px #25D366;animation:bounce 2s infinite}
-  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-  .btn-wa:hover{transform:scale(1.1)}
-  h2{font-size:26px;margin-bottom:15px}
-  #home h2{color:#60a5fa} #about h2{color:#34d399} #skills h2{color:#fbbf24} #videos h2{color:#a78bfa} #contact h2{color:#f472b6}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:15px}
-  .box{background:rgba(15,23,42,0.8);padding:15px;border-radius:12px;border-left:4px solid}
-  .video-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:15px}
-  .video-grid iframe{width:100%;height:200px;border-radius:12px;border:none}
-  @media(max-width:700px){.grid,.video-grid{grid-template-columns:1fr}}
-  p{line-height:1.7;color:#cbd5e1}
+:root {
+    --navy:#07152e;
+    --blue:#1769ff;
+    --cyan:#00d4ff;
+    --white:#ffffff;
+    --muted:#aebbd0;
+    --panel:#102442;
+}
+* {margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body {
+    font-family:Arial, sans-serif;
+    background:#07152e;
+    color:white;
+    line-height:1.7;
+}
+a {text-decoration:none;color:inherit}
+button {cursor:pointer}
+header {
+    background:rgba(5,16,37,.96);
+    position:sticky;top:0;z-index:1000;
+    border-bottom:1px solid #203958;
+}
+.nav {
+    max-width:1200px;margin:auto;padding:15px 5%;
+    display:flex;justify-content:space-between;align-items:center;
+}
+.logo {font-size:19px;font-weight:900;color:#00d4ff}
+.logo span {color:white}
+.menu-btn {background:#1769ff;color:white;border:0;padding:9px 15px;border-radius:7px}
+nav {
+    display:none;position:absolute;top:65px;left:0;width:100%;
+    background:#0b1c37;padding:20px;max-height:75vh;overflow:auto;
+}
+nav.active {display:block}
+nav a {display:block;padding:10px;border-bottom:1px solid #203958}
+nav a:hover {color:#00d4ff}
+.container {max-width:1200px;margin:auto;padding:65px 5%}
+.hero {
+    min-height:620px;display:flex;align-items:center;
+    background:linear-gradient(110deg,#07152e 35%,#123d78 100%);
+    position:relative;overflow:hidden;
+}
+.hero:after {
+    content:"";position:absolute;width:350px;height:350px;
+    border:50px solid #00d4ff20;border-radius:50%;
+    right:-100px;top:100px;
+}
+.hero h1 {font-size:clamp(38px,7vw,75px);line-height:1.12}
+.gradient {
+    background:linear-gradient(90deg,#00d4ff,#6d8cff);
+    -webkit-background-clip:text;color:transparent;
+}
+.hero p {color:#c0cde0;max-width:650px;margin:22px 0;font-size:18px}
+.btn {
+    display:inline-block;padding:13px 23px;border-radius:8px;
+    background:#1769ff;color:white;margin:5px;font-weight:bold;
+    border:1px solid transparent;
+}
+.btn:hover {background:#00a9d6;transform:translateY(-2px)}
+.btn-outline {background:transparent;border-color:#00d4ff}
+.section-title {font-size:34px;margin-bottom:10px}
+.subtitle {color:#aebbd0;margin-bottom:30px}
+.cards {
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:20px;
+}
+.card {
+    background:#102442;border:1px solid #263e5e;
+    border-radius:15px;padding:24px;transition:.3s;
+}
+.card:hover {transform:translateY(-7px);border-color:#00d4ff}
+.card h3 {margin:10px 0;color:#00d4ff}
+.card p {color:#bac8da;font-size:14px}
+.icon {font-size:35px}
+.badge {font-size:11px;color:#00d4ff;letter-spacing:2px}
+.stats {display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px}
+.stat {background:#102442;padding:25px;text-align:center;border-radius:12px}
+.stat strong {font-size:30px;color:#00d4ff;display:block}
+.subject-section {background:#0a1c35}
+.subject-section:nth-child(even) {background:#0d2341}
+.subject-card {border-top:4px solid var(--accent,#1769ff)}
+.subject-card h3 {color:var(--accent,#00d4ff)}
+.subject-card button {
+    background:var(--accent,#1769ff);color:white;border:0;
+    padding:10px 15px;border-radius:7px;margin-top:15px;
+}
+.notes-area {
+    display:none;background:#102442;padding:25px;
+    margin-top:25px;border-radius:12px;border:1px solid #00d4ff;
+}
+.notes-area.active {display:block}
+.notes-area h3 {color:#00d4ff}
+.notes-area li {margin-left:20px}
+.search-box {
+    width:100%;padding:15px;border-radius:8px;
+    border:1px solid #355476;background:#102442;color:white;
+    margin-bottom:25px;font-size:16px;
+}
+.page-hero {padding:50px 0}
+.page-hero h2 {font-size:35px}
+.tag {display:inline-block;background:#19385d;padding:5px 12px;border-radius:20px;margin:4px;font-size:12px}
+.quiz-question {background:#102442;padding:20px;border-radius:12px;margin:15px 0}
+.quiz-question button {
+    display:block;width:100%;text-align:left;padding:12px;
+    margin:8px 0;background:#19385d;border:1px solid #355476;
+    color:white;border-radius:7px;
+}
+.quiz-question button:hover {border-color:#00d4ff}
+#quizResult {color:#00d4ff;font-weight:bold;margin:20px 0}
+footer {background:#030c1c;padding:45px 5%;text-align:center;color:#aebbd0}
+footer h2 {color:#00d4ff}
+footer a {color:#00d4ff}
+.hidden {display:none!important}
+@media(min-width:850px) {
+    .menu-btn {display:none}
+    nav {display:flex!important;position:static;width:auto;padding:0;background:none;max-height:none}
+    nav a {border:0;padding:10px;font-size:13px}
+}
 </style>
 </head>
+
 <body>
 
-<!-- Funny floating emojis -->
-<div class="float" style="left:5%;top:15%;animation-delay:0s">💻</div>
-<div class="float" style="left:85%;top:20%;animation-delay:1s">🚀</div>
-<div class="float" style="left:10%;top:80%;animation-delay:2s">🎨</div>
-<div class="float" style="left:90%;top:75%;animation-delay:0.5s">🤖</div>
-<div class="float" style="left:50%;top:10%;animation-delay:1.5s">✨</div>
-
-<nav>
-  <button onclick="show('home')" id="b-home" class="active">🏠 Home</button>
-  <button onclick="show('about')" id="b-about">💡 About</button>
-  <button onclick="show('skills')" id="b-skills">🚀 Learn</button>
-  <button onclick="show('videos')" id="b-videos">🎬 Videos</button>
-  <button onclick="show('contact')" id="b-contact">📩 Contact</button>
+<header>
+<div class="nav">
+<div class="logo">AC<span> DIGITAL</span></div>
+<button class="menu-btn" onclick="toggleMenu()">☰ MENU</button>
+<nav id="navigation">
+<a href="#home" onclick="closeMenu()">Home</a>
+<a href="#about" onclick="closeMenu()">About</a>
+<a href="#primary" onclick="closeMenu()">Primary</a>
+<a href="#secondary" onclick="closeMenu()">Secondary</a>
+<a href="#technology" onclick="closeMenu()">Technology</a>
+<a href="#innovation" onclick="closeMenu()">Innovation</a>
+<a href="#resources" onclick="closeMenu()">Resources</a>
+<a href="#quiz" onclick="closeMenu()">Quiz</a>
+<a href="#contact" onclick="closeMenu()">Contact</a>
 </nav>
-
-<div id="home" class="page active">
-  <div class="card profile">
-    <img src="cole.jpg" alt="Cole">
-    <h1 style="margin-top:15px">Cole Ayebazibwe Kamugisha</h1>
-    <div class="typing" id="typing"></div>
-    <div>
-      <span class="tag">🌍 DIGITAL WORLD</span>
-      <span class="tag">🎓 STUDENT MENTOR</span>
-      <span class="tag">🔥 CREATIVE CODER</span>
-    </div>
-    <p style="margin-top:20px">I build websites that make students say "Wow! I can do this too!" From Bunamwaya, Kampala to the whole world - your phone is your office!</p>
-    <!-- NUMBER HIDDEN - ONLY BUTTON -->
-    <div style="margin-top:25px">
-      <a href="https://wa.me/256745591042?text=Hi%20Cole,%20I%20saw%20your%20website%20-%20I%20want%20to%20learn!" class="btn btn-wa">💬 Chat on WhatsApp</a>
-    </div>
-    <p style="margin-top:10px;font-size:12px;color:#64748b">Click button to chat - number is private</p>
-  </div>
 </div>
+</header>
 
-<div id="about" class="page">
-  <div class="card">
-    <h2>💡 About Me - Creative Digital Guy</h2>
-    <p>I'm <b>Cole</b> from Bunamwaya. I help students enter digital world without complicated English. Code = Power!</p><br>
-    <div class="grid">
-      <div class="box" style="border-color:#34d399"><b>🎯 My Mission</b><br>Make every student in Uganda able to build a website with just a phone.</div>
-      <div class="box" style="border-color:#60a5fa"><b>💡 My Style</b><br>Funny animations + dark pro look + simple words. Learning should be fun!</div>
-    </div><br>
-    <p>🔥 <b>Why Students Love Me:</b> I explain like a friend, not a teacher. No boring theory. We build LIVE!</p>
-  </div>
-</div>
+<main>
 
-<div id="skills" class="page">
-  <div class="card">
-    <h2>📚 Learning Sectors - What I Teach</h2>
-    <p>These are the sectors I maintain for students & creatives:</p>
-    <div class="grid" style="margin-top:15px">
-      <div class="box" style="border-color:#fbbf24"><b>💻 Web Development</b><br>HTML, CSS, JavaScript, GitHub Pages - build sites like this!</div>
-      <div class="box" style="border-color:#fbbf24"><b>🎨 Creative Design</b><br>UI/UX, Canva, Branding - make things beautiful</div>
-      <div class="box" style="border-color:#fbbf24"><b>🎓 Student Sector</b><br>Portfolio building, Freelancing basics, How to get first client</div>
-      <div class="box" style="border-color:#fbbf24"><b>🌍 Digital World</b><br>How to go from Bunamwaya to global - using internet power</div>
-    </div>
-    <p style="margin-top:15px;background:rgba(251,191,36,0.1);padding:12px;border-radius:10px;border:1px solid #fbbf24">Special: I teach in simple English + Luganda mix. WhatsApp me to join free class!</p>
-  </div>
+<!-- HOME -->
+<section class="hero" id="home">
+<div class="container">
+<span class="badge">WELCOME TO THE FUTURE OF LEARNING</span>
+<h1>Discover. Learn.<br><span class="gradient">Innovate. Transform.</span></h1>
+<p>
+Welcome to AYEBAZIBWE COLE Digital Learning Hub — a modern educational
+platform connecting knowledge, technology and innovation.
+Explore academic subjects, discover the world of information technology,
+develop digital skills and prepare yourself for tomorrow's opportunities.
+</p>
+<a href="#primary" class="btn">Explore Learning</a>
+<a href="#technology" class="btn btn-outline">Discover Technology</a>
 </div>
+</section>
 
-<div id="videos" class="page">
-  <div class="card">
-    <h2>🎬 Animated Learning Videos</h2>
-    <p>Watch, laugh, learn - funny + educational!</p>
-    <div class="video-grid">
-      <iframe src="https://www.youtube.com/embed/3JluqTojuME" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/k9WqpQp8Vs0" allowfullscreen></iframe>
-    </div>
-    <p style="margin-top:15px">Soon I will add my own funny coding videos here! Stay tuned 😂</p>
-  </div>
+<!-- STATS -->
+<section class="container">
+<div class="stats">
+<div class="stat"><strong>2</strong>Education Levels</div>
+<div class="stat"><strong>20+</strong>Learning Areas</div>
+<div class="stat"><strong>IT</strong>Technology Hub</div>
+<div class="stat"><strong>∞</strong>Possibilities</div>
 </div>
+</section>
 
-<div id="contact" class="page">
-  <div class="card" style="text-align:center">
-    <h2>📩 Let's Build Your Future</h2>
-    <p>Want a website like this? Want to learn?</p><br>
-    <p>📍 Bunamwaya, Kampala<br>🌐 ayebazibwecolekamuza.github.io</p><br>
-    <a href="https://wa.me/256745591042?text=Hi%20Cole,%20I%20want%20a%20website%20like%20yours!" class="btn btn-wa">💬 Chat on WhatsApp</a>
-    <p style="margin-top:20px;color:#64748b;font-size:13px">© 2026 Cole Ayebazibwe | Built with ❤️ & Dark Mode in Uganda</p>
-  </div>
+<!-- ABOUT -->
+<section class="container" id="about">
+<span class="badge">ABOUT THE PLATFORM</span>
+<h2 class="section-title">Education Meets Digital Innovation</h2>
+<p class="subtitle">
+Our mission is to make knowledge accessible, understandable and useful
+in an increasingly digital world.
+</p>
+<div class="cards">
+<div class="card"><div class="icon">🎓</div><h3>Academic Excellence</h3><p>Explore school subjects, educational explanations, revision materials and learning opportunities.</p></div>
+<div class="card"><div class="icon">💻</div><h3>Digital Transformation</h3><p>Discover how technology is changing communication, education, business and society.</p></div>
+<div class="card"><div class="icon">🚀</div><h3>Future Innovation</h3><p>Understand emerging technologies and develop creative thinking for tomorrow.</p></div>
+<div class="card"><div class="icon">🌍</div><h3>Global Knowledge</h3><p>Connect classroom knowledge with real-world developments and opportunities.</p></div>
 </div>
+</section>
+
+<!-- PRIMARY -->
+<section class="container subject-section" id="primary">
+<div class="page-hero">
+<span class="badge">LEARNING SECTOR 01</span>
+<h2>📚 Primary Education</h2>
+<p class="subtitle">Building strong foundations for academic success.</p>
+</div>
+<input class="search-box" placeholder="Search primary subjects..." oninput="filterCards(this,'primaryCards')">
+<div class="cards" id="primaryCards"></div>
+</section>
+
+<!-- SECONDARY -->
+<section class="container subject-section" id="secondary">
+<div class="page-hero">
+<span class="badge">LEARNING SECTOR 02</span>
+<h2>🎓 Secondary Education</h2>
+<p class="subtitle">Explore academic knowledge from lower to upper secondary levels.</p>
+</div>
+<input class="search-box" placeholder="Search secondary subjects..." oninput="filterCards(this,'secondaryCards')">
+<div class="cards" id="secondaryCards"></div>
+</section>
+
+<!-- TECHNOLOGY -->
+<section class="container" id="technology">
+<div class="page-hero">
+<span class="badge">LEARNING SECTOR 03</span>
+<h2>💻 Information Technology</h2>
+<p class="subtitle">Understanding the systems powering the modern world.</p>
+</div>
+<div class="cards" id="technologyCards"></div>
+</section>
+
+<!-- INNOVATION -->
+<section class="container subject-section" id="innovation">
+<div class="page-hero">
+<span class="badge">LEARNING SECTOR 04</span>
+<h2>🚀 Digital Innovation & Emerging Technology</h2>
+<p class="subtitle">Explore the technologies shaping the next generation.</p>
+</div>
+<div class="cards" id="innovationCards"></div>
+</section>
+
+<!-- RESOURCES -->
+<section class="container" id="resources">
+<span class="badge">KNOWLEDGE CENTRE</span>
+<h2 class="section-title">Learning Resources</h2>
+<p class="subtitle">Explore educational materials and improve your understanding.</p>
+<div class="cards">
+<div class="card"><div class="icon">📖</div><h3>Revision Notes</h3><p>Organised subject notes and revision explanations.</p></div>
+<div class="card"><div class="icon">📝</div><h3>Practice Questions</h3><p>Test your understanding with educational exercises.</p></div>
+<div class="card"><div class="icon">🏆</div><h3>Academic Preparation</h3><p>Build confidence through regular revision and practice.</p></div>
+<div class="card"><div class="icon">🌐</div><h3>Digital Literacy</h3><p>Learn about responsible and productive technology use.</p></div>
+</div>
+<p style="margin-top:25px;color:#aebbd0">Note: The subject sections contain introductory learning materials. More detailed notes and downloadable resources can be added as they are developed.</p>
+</section>
+
+<!-- QUIZ -->
+<section class="container subject-section" id="quiz">
+<span class="badge">TEST YOUR KNOWLEDGE</span>
+<h2 class="section-title">Digital Knowledge Challenge</h2>
+<p class="subtitle">Answer the following questions and check your understanding.</p>
+<div id="quizContainer"></div>
+<button class="btn" onclick="checkQuiz()">Submit Answers</button>
+<div id="quizResult"></div>
+</section>
+
+<!-- DIGITAL FUTURE -->
+<section class="container">
+<span class="badge">THE FUTURE IS DIGITAL</span>
+<h2 class="section-title">Why Digitization Matters</h2>
+<div class="cards">
+<div class="card"><h3>⚡ Efficiency</h3><p>Digital systems help organisations perform tasks more efficiently.</p></div>
+<div class="card"><h3>🌍 Connectivity</h3><p>Technology connects people and communities across the world.</p></div>
+<div class="card"><h3>📊 Data & Information</h3><p>Digital information helps people make informed decisions.</p></div>
+<div class="card"><h3>💡 Creativity</h3><p>Technology provides tools for creating new ideas and solutions.</p></div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="container subject-section" id="contact">
+<span class="badge">GET IN TOUCH</span>
+<h2 class="section-title">Connect With The Creator</h2>
+<p class="subtitle">Have a question, suggestion or educational idea? Contact the creator through WhatsApp.</p>
+<div class="card">
+<div class="icon">👨‍💻</div>
+<h2>AYEBAZIBWE COLE</h2>
+<p>Creator & Developer | Digital Learning Enthusiast</p>
+<p style="margin:15px 0">📱 Uganda: +256 745 591 042</p>
+<a class="btn" href="https://wa.me/256745591042?text=Hello%20AYEBAZIBWE%20COLE%2C%20I%20visited%20your%20Digital%20Learning%20Hub." target="_blank" rel="noopener">💬 Contact on WhatsApp</a>
+<p style="margin-top:15px;font-size:12px">WhatsApp is the official contact channel for this platform.</p>
+</div>
+</section>
+
+</main>
+
+<footer>
+<h2>AYEBAZIBWE COLE</h2>
+<p>Digital Learning Hub</p>
+<p>Empowering Minds Through Education & Technology.</p>
+<p style="margin-top:15px">Learn Today. Innovate Tomorrow. Transform the Future.</p>
+<p style="margin-top:20px;font-size:12px">© <span id="year"></span> AYEBAZIBWE COLE. All Rights Reserved.</p>
+<p>Designed for Knowledge. Built for Innovation.</p>
+<a href="#home">Back to Top ↑</a>
+</footer>
 
 <script>
-const texts=["Crafting Digital Futures...","Inspiring Students...","Creating With Code...","Bunamwaya to the World! 🚀"];
-let i=0,j=0,del=false;
-function type(){
-  let cur=texts[i];
-  document.getElementById('typing').innerHTML=cur.substring(0,j)+(j%2?'|':'');
-  if(!del){j++;if(j>cur.length){del=true;setTimeout(type,1200);return}}
-  else{j--;if(j==0){del=false;i=(i+1)%texts.length}}
-  setTimeout(type, del?60:100);
+function toggleMenu(){
+ document.getElementById('navigation').classList.toggle('active');
 }
-type();
-function show(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.getElementById('b-'+id).classList.add('active');
-  window.scrollTo(0,0);
+function closeMenu(){
+ document.getElementById('navigation').classList.remove('active');
+}
+
+document.getElementById('year').textContent=new Date().getFullYear();
+
+const primarySubjects = [
+["Mathematics","➗","Numbers, arithmetic, fractions, geometry, measurements and problem solving."],
+["English","📘","Grammar, vocabulary, comprehension, writing, speaking and reading."],
+["Science","🔬","Living things, matter, energy, the human body and the environment."],
+["Social Studies","🌍","People, communities, history, geography, leadership and citizenship."],
+["Religious Education","🕊️","Moral values, religious teachings, respect and responsible living."],
+["Physical Education","⚽","Physical fitness, sports, teamwork and healthy living."],
+["Creative Arts","🎨","Drawing, painting, music, crafts and creative expression."],
+["Literacy","✍️","Reading, writing, communication and language development."],
+["Local Languages","🗣️","Communication, vocabulary, reading and writing in local languages."],
+["Technology","💻","Introduction to computers, tools, digital devices and technology."]
+];
+
+const secondarySubjects = [
+["Mathematics","➗","Algebra, geometry, statistics, trigonometry, equations and mathematical applications."],
+["English Language","📘","Grammar, comprehension, summary, composition, literature and communication."],
+["Physics","⚛️","Mechanics, electricity, waves, light, heat and energy."],
+["Chemistry","🧪","Elements, compounds, chemical reactions, acids, bases and laboratory science."],
+["Biology","🧬","Cells, genetics, ecology, classification, reproduction and human physiology."],
+["Geography","🌍","Climate, weather, vegetation, population, agriculture, landforms and economic activities."],
+["History","🏛️","Historical events, societies, civilisations, leadership and development."],
+["Christian Religious Education","✝️","Biblical teachings, Christian values, faith and moral responsibilities."],
+["Islamic Religious Education","☪️","Islamic teachings, values, history and religious responsibilities."],
+["Commerce","📈","Trade, business activities, markets, banking and commercial practices."],
+["Entrepreneurship","💼","Business planning, innovation, management and enterprise development."],
+["Agriculture","🌱","Crop production, animal husbandry, soil management and agricultural development."],
+["Computer Studies","🖥️","Computer hardware, software, networks, databases and digital applications."],
+["Literature in English","📚","Poetry, novels, drama, literary techniques and critical analysis."],
+["Kiswahili","🗣️","Grammar, vocabulary, comprehension, communication and composition."],
+["Fine Art","🖌️","Drawing, painting, design, visual communication and creativity."],
+["Technical Drawing","📐","Geometrical construction, design, plans and technical representation."],
+["Nutrition and Food Technology","🥗","Food preparation, nutrition, hygiene and food preservation."],
+["Physical Education","🏃","Sports, fitness, physical development and health."],
+["General Paper","📝","Critical thinking, current affairs, communication and essay writing."]
+];
+
+const technologySubjects = [
+["Computer Hardware","🖥️","Learn about processors, memory, storage, motherboards, input and output devices."],
+["Computer Software","💿","Understand operating systems, application software and programming tools."],
+["Programming","👨‍💻","Introduction to algorithms, variables, conditions, loops and programming logic."],
+["Web Development","🌐","Explore HTML, CSS, JavaScript and the creation of interactive websites."],
+["Networking","📡","Understand computer networks, routers, internet connections and communication."],
+["Cybersecurity","🔐","Learn about digital safety, privacy, secure passwords and online protection."],
+["Database Systems","🗄️","Discover data organisation, tables, records, databases and information management."],
+["Artificial Intelligence","🤖","Understand machine learning, intelligent systems and responsible AI applications."],
+["Embedded Systems","🔧","Explore computer systems built into devices such as appliances, vehicles and machines."],
+["Internet of Things","📶","Understand how connected devices collect and exchange information."],
+["Cloud Computing","☁️","Learn about online storage, cloud services and remote computing resources."],
+["Operating Systems","⚙️","Explore how operating systems manage hardware, software and computer resources."],
+["Mobile Technology","📱","Discover mobile applications, smartphone systems and mobile communication."],
+["Digital Electronics","🔌","Introduction to digital signals, logic gates and electronic circuits."],
+["Robotics","🦾","Explore automated machines, sensors, controllers and intelligent movement."],
+["Information Systems","📊","Understand how organisations collect, process, store and use information."]
+];
+
+const innovationSubjects = [
+["Digital Transformation","🌐","How technology changes education, business, healthcare and public services."],
+["Blockchain Technology","⛓️","Introduction to distributed ledgers, digital records and decentralised systems."],
+["Virtual Reality","🥽","Explore computer-generated environments and immersive experiences."],
+["Augmented Reality","✨","Understand digital information layered over real-world environments."],
+["Renewable Energy Technology","☀️","Explore solar, wind and other modern sustainable energy technologies."],
+["3D Printing","🖨️","Learn how digital designs can be transformed into physical objects."],
+["Smart Cities","🏙️","Discover how connected technology can improve urban services."],
+["Digital Finance","💳","Understand digital payments, electronic banking and financial technology."],
+["Data Science","📊","Explore data collection, analysis, visualisation and interpretation."],
+["Automation","⚙️","Understand systems that perform tasks with limited human intervention."],
+["Satellite Technology","🛰️","Discover satellite communication, navigation and earth observation."],
+["Green Technology","🌱","Explore innovations designed to reduce environmental impact."]
+];
+
+function createCards(data,target,color){
+ const container=document.getElementById(target);
+ container.innerHTML=data.map((item,i)=>`
+ <div class="card subject-card" style="--accent:${color}">
+ <div class="icon">${item[1]}</div>
+ <h3>${item[0]}</h3>
+ <p>${item[2]}</p>
+ <button onclick="showNotes(this,'${target}-${i}')">Explore Subject</button>
+ <div class="notes-area" id="${target}-${i}">
+ <h3>${item[0]} – Introduction</h3>
+ <p>${item[2]}</p>
+ <h4 style="margin-top:15px;color:#00d4ff">Key Learning Areas</h4>
+ <ul>
+ <li>Meaning and basic concepts of ${item[0]}.</li>
+ <li>Important principles and terminology.</li>
+ <li>Practical applications in everyday life.</li>
+ <li>Importance in education and society.</li>
+ <li>Challenges and possible solutions.</li>
+ </ul>
+ <p style="margin-top:15px">Continue learning by consulting your school textbooks, teacher and recommended study materials.</p>
+ </div>
+ </div>`).join('');
+}
+
+createCards(primarySubjects,'primaryCards','#00c6a7');
+createCards(secondarySubjects,'secondaryCards','#ff9f43');
+createCards(technologySubjects,'technologyCards','#398cff');
+createCards(innovationSubjects,'innovationCards','#b56cff');
+
+function showNotes(button,id){
+ const area=document.getElementById(id);
+ area.classList.toggle('active');
+ button.textContent=area.classList.contains('active')?'Close Notes':'Explore Subject';
+}
+
+function filterCards(input,id){
+ const search=input.value.toLowerCase();
+ document.querySelectorAll('#'+id+' .card').forEach(card=>{
+ card.style.display=card.innerText.toLowerCase().includes(search)?'block':'none';
+ });
+}
+
+// QUIZ
+const questions=[
+{q:"What does CPU stand for?",a:["Central Processing Unit","Computer Personal Unit","Central Program Utility"],correct:0},
+{q:"Which language is used to structure web pages?",a:["HTML","Python","SQL"],correct:0},
+{q:"What is the main function of RAM?",a:["Permanent storage","Temporary working memory","Printing documents"],correct:1},
+{q:"Which system connects devices to the internet?",a:["Network","Calculator","Keyboard"],correct:0},
+{q:"What does AI stand for?",a:["Automatic Internet","Artificial Intelligence","Advanced Information"],correct:1}
+];
+
+let selected={};
+const quiz=document.getElementById('quizContainer');
+quiz.innerHTML=questions.map((q,i)=>`
+<div class="quiz-question">
+<strong>${i+1}. ${q.q}</strong>
+${q.a.map((a,j)=>`<button onclick="selectAnswer(${i},${j},this)">${String.fromCharCode(65+j)}. ${a}</button>`).join('')}
+</div>`).join('');
+
+function selectAnswer(q,a,button){
+ selected[q]=a;
+ button.parentElement.querySelectorAll('button').forEach(b=>{
+ b.style.borderColor='#355476';
+ b.style.background='#19385d';
+ });
+ button.style.borderColor='#00d4ff';
+ button.style.background='#245080';
+}
+
+function checkQuiz(){
+ if(Object.keys(selected).length!==questions.length){
+ document.getElementById('quizResult').textContent='Please answer all questions first.';
+ return;
+ }
+ let score=questions.filter((q,i)=>selected[i]===q.correct).length;
+ document.getElementById('quizResult').textContent=
+ 'Your score: '+score+'/'+questions.length+'. '+(score===5?'Excellent work!':'Good effort! Keep learning and try again.');
 }
 </script>
 </body>
