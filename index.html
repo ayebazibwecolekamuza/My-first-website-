@@ -4,133 +4,191 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Digital Knowledge | Home</title>
+<title>Digital World | Home</title>
+<meta name="description" content="Explore digital knowledge, technology, tutorials and learning resources.">
 
 <style>
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  scroll-behavior: smooth;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f7fb;
-  color: #172033;
+  background: #f4f7fc;
+  color: #17243b;
   line-height: 1.6;
 }
 
 header {
-  background: #101827;
+  background: #071a35;
   color: white;
-  padding: 20px;
-  text-align: center;
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-header h1 {
-  color: #38bdf8;
-  font-size: 28px;
+.logo {
+  font-size: 23px;
+  font-weight: bold;
+  color: #35d5f0;
 }
 
 nav {
-  background: #087cf0;
-  padding: 13px;
-  text-align: center;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 nav a {
   color: white;
   text-decoration: none;
-  margin: 0 10px;
-  font-weight: bold;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: #35d5f0;
 }
 
 .hero {
-  background: linear-gradient(135deg, #101827, #0756a8);
+  min-height: 520px;
+  padding: 100px 8%;
+  background: linear-gradient(120deg, #071a35, #104c83, #087f9d);
   color: white;
-  text-align: center;
-  padding: 75px 20px;
+  display: flex;
+  align-items: center;
 }
 
-.hero h2 {
-  font-size: 34px;
-  margin-bottom: 15px;
+.hero-content {
+  max-width: 700px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 7vw, 65px);
+  line-height: 1.15;
+  margin-bottom: 22px;
+}
+
+.hero h1 span {
+  color: #35d5f0;
 }
 
 .hero p {
   font-size: 18px;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
+  color: #e0edfa;
 }
 
 .btn {
   display: inline-block;
-  background: #38bdf8;
-  color: #101827;
-  padding: 12px 24px;
-  border-radius: 25px;
+  background: #35d5f0;
+  color: #071a35;
+  padding: 13px 25px;
+  border-radius: 7px;
   text-decoration: none;
   font-weight: bold;
 }
 
-section {
-  padding: 45px 20px;
-  text-align: center;
+.btn:hover {
+  background: white;
 }
 
-section h2 {
-  color: #0756a8;
-  margin-bottom: 20px;
+section {
+  padding: 65px 8%;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.section-intro {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 35px;
+  color: #64748b;
 }
 
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  max-width: 1000px;
-  margin: auto;
+  gap: 22px;
 }
 
 .card {
   background: white;
-  padding: 25px;
+  padding: 28px;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.06);
 }
 
 .card h3 {
-  color: #087cf0;
-  margin-bottom: 10px;
+  color: #087f9d;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #64748b;
 }
 
 .about {
   background: white;
+  text-align: center;
 }
 
-.contact {
-  background: #e5f2ff;
+.about p {
+  max-width: 750px;
+  margin: auto;
+  color: #64748b;
+}
+
+.cta {
+  background: #071a35;
+  color: white;
+  text-align: center;
+}
+
+.cta p {
+  margin: 15px auto 25px;
+  color: #d5e4f4;
 }
 
 footer {
-  background: #101827;
+  background: #041126;
   color: white;
   text-align: center;
-  padding: 25px;
+  padding: 25px 10px;
 }
 
-footer span {
-  color: #38bdf8;
+footer p {
+  font-size: 14px;
+  color: #b8c8dc;
 }
 
-@media(max-width: 500px) {
-  nav a {
-    display: inline-block;
-    margin: 5px;
-    font-size: 14px;
+@media(max-width: 600px) {
+  header {
+    gap: 15px;
   }
 
-  .hero h2 {
-    font-size: 27px;
+  nav {
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  .hero {
+    min-height: 440px;
+    padding: 65px 7%;
+  }
+
+  section {
+    padding: 50px 7%;
   }
 }
 </style>
@@ -139,70 +197,78 @@ footer span {
 <body>
 
 <header>
-  <h1>🌐 DIGITAL KNOWLEDGE</h1>
-  <p>Explore. Learn. Discover.</p>
+  <div class="logo">DIGITAL WORLD.</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="tutorials.html">Tutorials</a>
+    <a href="services.html">Services</a>
+    <a href="resources.html">Resources</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
-<nav>
-  <a href="#home">Home</a>
-  <a href="#services">Services</a>
-  <a href="#about">About</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<div class="hero" id="home">
-  <h2>Welcome to Digital Knowledge</h2>
-  <p>Making the digital world easier to understand.</p>
-  <a href="#services" class="btn">Explore More</a>
+<div class="hero">
+  <div class="hero-content">
+    <h1>Discover the <span>Digital World</span></h1>
+    <p>
+      Welcome to your digital knowledge centre.
+      Explore technology, learn new skills and discover
+      how the digital world works.
+    </p>
+    <a href="tutorials.html" class="btn">Explore Tutorials →</a>
+  </div>
 </div>
 
-<section id="services">
-  <h2>What You Can Explore</h2>
+<section>
+  <h2 class="section-title">Explore Our Platform</h2>
+  <p class="section-intro">
+    Everything you need to understand technology
+    and improve your digital knowledge.
+  </p>
 
   <div class="cards">
-
     <div class="card">
       <h3>💻 Technology</h3>
-      <p>Discover computers, modern technology and digital innovations.</p>
+      <p>Discover computers, modern technology and digital innovation.</p>
     </div>
 
     <div class="card">
-      <h3>🌍 Digital World</h3>
-      <p>Learn about the internet, websites and the world of digital communication.</p>
+      <h3>📚 Tutorials</h3>
+      <p>Learn useful digital skills through simple learning guides.</p>
     </div>
 
     <div class="card">
-      <h3>📚 Education</h3>
-      <p>Explore useful knowledge, learning resources and educational information.</p>
+      <h3>🌐 Internet</h3>
+      <p>Understand websites, online platforms and internet services.</p>
     </div>
 
     <div class="card">
       <h3>🚀 Innovation</h3>
-      <p>Discover creative ideas and inventions shaping our future.</p>
+      <p>Explore creative ideas shaping the future of the digital world.</p>
     </div>
-
   </div>
 </section>
 
-<section class="about" id="about">
-  <h2>About Us</h2>
+<section class="about">
+  <h2 class="section-title">Knowledge Opens Doors</h2>
   <p>
-    Digital Knowledge is a platform dedicated to sharing
-    useful information about technology, education and
-    the digital world. Our goal is to make learning easier,
-    interesting and accessible to everyone.
+    Digital World is a learning platform created to make
+    digital knowledge easier to understand and access.
+    Our goal is to help people discover technology,
+    develop skills and become confident in the digital age.
   </p>
 </section>
 
-<section class="contact" id="contact">
-  <h2>Contact Us</h2>
-  <p>Have an idea, question or suggestion?</p>
-  <p>We would love to hear from you!</p>
+<section class="cta">
+  <h2>Ready to Explore?</h2>
+  <p>Start learning something new today.</p>
+  <a href="resources.html" class="btn">Explore Resources →</a>
 </section>
 
 <footer>
-  <p>© 2026 <span>Digital Knowledge</span>. All Rights Reserved.</p>
-  <p>Explore. Learn. Grow.</p>
+  <p>© 2026 Digital World. All Rights Reserved.</p>
+  <p>Learn Today. Innovate Tomorrow.</p>
 </footer>
 
 </body>
