@@ -4,43 +4,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Digital World | Home</title>
-<meta name="description" content="Explore digital knowledge, technology, tutorials and learning resources.">
+<title>My Professional Website</title>
 
 <style>
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
+  font-family: Arial, sans-serif;
   background: #f4f7fc;
-  color: #17243b;
-  line-height: 1.6;
+  color: #172033;
 }
 
 header {
-  background: #071a35;
+  background: #101b36;
   color: white;
-  padding: 18px 7%;
+  padding: 20px 7%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  gap: 15px;
 }
 
 .logo {
-  font-size: 23px;
+  font-size: 25px;
   font-weight: bold;
-  color: #35d5f0;
+  color: #42d6c5;
 }
 
 nav {
   display: flex;
-  gap: 20px;
   flex-wrap: wrap;
+  gap: 18px;
 }
 
 nav a {
@@ -50,145 +50,150 @@ nav a {
 }
 
 nav a:hover {
-  color: #35d5f0;
+  color: #42d6c5;
 }
 
 .hero {
   min-height: 520px;
   padding: 100px 8%;
-  background: linear-gradient(120deg, #071a35, #104c83, #087f9d);
-  color: white;
   display: flex;
   align-items: center;
+  color: white;
+  background: linear-gradient(120deg, #101b36, #174d76, #087e83);
 }
 
 .hero-content {
   max-width: 700px;
+  animation: appear 1.2s ease;
 }
 
 .hero h1 {
   font-size: clamp(38px, 7vw, 65px);
-  line-height: 1.15;
-  margin-bottom: 22px;
-}
-
-.hero h1 span {
-  color: #35d5f0;
+  margin-bottom: 20px;
 }
 
 .hero p {
   font-size: 18px;
+  line-height: 1.8;
   margin-bottom: 30px;
-  color: #e0edfa;
 }
 
 .btn {
   display: inline-block;
-  background: #35d5f0;
-  color: #071a35;
-  padding: 13px 25px;
-  border-radius: 7px;
+  background: #42d6c5;
+  color: #101b36;
+  padding: 14px 25px;
+  border-radius: 30px;
   text-decoration: none;
   font-weight: bold;
+  transition: .3s;
 }
 
 .btn:hover {
   background: white;
+  transform: translateY(-4px);
 }
 
 section {
-  padding: 65px 8%;
+  padding: 75px 8%;
 }
 
 .section-title {
   text-align: center;
-  font-size: 32px;
+  font-size: 34px;
   margin-bottom: 15px;
+  color: #101b36;
 }
 
 .section-intro {
   text-align: center;
-  max-width: 650px;
-  margin: 0 auto 35px;
-  color: #64748b;
+  color: #667085;
+  margin-bottom: 40px;
+}
+
+.about {
+  text-align: center;
+  line-height: 1.9;
+  max-width: 850px;
+  margin: auto;
 }
 
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 22px;
+  gap: 25px;
 }
 
 .card {
   background: white;
-  padding: 28px;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.06);
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,.12);
+}
+
+.card .emoji {
+  font-size: 38px;
+  margin-bottom: 18px;
 }
 
 .card h3 {
-  color: #087f9d;
   margin-bottom: 12px;
+  color: #087e83;
 }
 
 .card p {
-  color: #64748b;
+  color: #667085;
+  line-height: 1.7;
 }
 
-.about {
-  background: white;
-  text-align: center;
-}
-
-.about p {
-  max-width: 750px;
-  margin: auto;
-  color: #64748b;
-}
-
-.cta {
-  background: #071a35;
+.dark-section {
+  background: #101b36;
   color: white;
-  text-align: center;
 }
 
-.cta p {
-  margin: 15px auto 25px;
-  color: #d5e4f4;
+.dark-section .section-title {
+  color: white;
+}
+
+.dark-section .card {
+  color: #172033;
+}
+
+.contact {
+  max-width: 650px;
+  margin: auto;
+  text-align: center;
+  line-height: 2;
 }
 
 footer {
-  background: #041126;
+  background: #101b36;
   color: white;
   text-align: center;
-  padding: 25px 10px;
+  padding: 30px 15px;
+  line-height: 2;
 }
 
-footer p {
-  font-size: 14px;
-  color: #b8c8dc;
+@keyframes appear {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@media(max-width: 600px) {
+@media(max-width:600px) {
   header {
-    gap: 15px;
+    justify-content: center;
   }
-
   nav {
-    gap: 12px;
+    justify-content: center;
   }
-
-  nav a {
-    font-size: 12px;
-  }
-
   .hero {
-    min-height: 440px;
-    padding: 65px 7%;
-  }
-
-  section {
-    padding: 50px 7%;
+    padding: 75px 7%;
   }
 }
 </style>
@@ -197,78 +202,136 @@ footer p {
 <body>
 
 <header>
-  <div class="logo">DIGITAL WORLD.</div>
+  <div class="logo">MY WEBSITE.</div>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="tutorials.html">Tutorials</a>
-    <a href="services.html">Services</a>
-    <a href="resources.html">Resources</a>
-    <a href="contact.html">Contact</a>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#tutorials">Tutorials</a>
+    <a href="#resources">Resources</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<div class="hero">
-  <div class="hero-content">
-    <h1>Discover the <span>Digital World</span></h1>
-    <p>
-      Welcome to your digital knowledge centre.
-      Explore technology, learn new skills and discover
-      how the digital world works.
-    </p>
-    <a href="tutorials.html" class="btn">Explore Tutorials →</a>
-  </div>
-</div>
+<main>
 
-<section>
-  <h2 class="section-title">Explore Our Platform</h2>
-  <p class="section-intro">
-    Everything you need to understand technology
-    and improve your digital knowledge.
-  </p>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Welcome to My Digital World</h1>
+    <p>
+      Discover knowledge, creativity, innovation and opportunities.
+      Explore our website and experience something different.
+    </p>
+    <a href="#about" class="btn">Explore More →</a>
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="section-title">About Us</h2>
+  <p class="section-intro">Get to know more about our vision.</p>
+  <div class="about">
+    <p>
+      Welcome to our website! This platform is designed to share
+      useful information, ideas, educational content and exciting
+      opportunities. Our mission is to inspire creativity,
+      encourage learning and connect people with valuable resources.
+    </p>
+  </div>
+</section>
+
+<section id="services">
+  <h2 class="section-title">Our Services</h2>
+  <p class="section-intro">Discover what we have to offer.</p>
 
   <div class="cards">
     <div class="card">
-      <h3>💻 Technology</h3>
-      <p>Discover computers, modern technology and digital innovation.</p>
+      <div class="emoji">💻</div>
+      <h3>Technology</h3>
+      <p>Explore digital innovation, technology and modern solutions.</p>
     </div>
 
     <div class="card">
-      <h3>📚 Tutorials</h3>
-      <p>Learn useful digital skills through simple learning guides.</p>
+      <div class="emoji">📚</div>
+      <h3>Education</h3>
+      <p>Access learning materials and useful educational information.</p>
     </div>
 
     <div class="card">
-      <h3>🌐 Internet</h3>
-      <p>Understand websites, online platforms and internet services.</p>
-    </div>
-
-    <div class="card">
-      <h3>🚀 Innovation</h3>
-      <p>Explore creative ideas shaping the future of the digital world.</p>
+      <div class="emoji">🚀</div>
+      <h3>Innovation</h3>
+      <p>Discover creative ideas and opportunities for growth.</p>
     </div>
   </div>
 </section>
 
-<section class="about">
-  <h2 class="section-title">Knowledge Opens Doors</h2>
-  <p>
-    Digital World is a learning platform created to make
-    digital knowledge easier to understand and access.
-    Our goal is to help people discover technology,
-    develop skills and become confident in the digital age.
-  </p>
+<section class="dark-section" id="tutorials">
+  <h2 class="section-title">Our Tutorials</h2>
+  <p class="section-intro">Learn something new every day.</p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="emoji">🌐</div>
+      <h3>Web Development</h3>
+      <p>Learn about websites and the digital world.</p>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🎨</div>
+      <h3>Creative Design</h3>
+      <p>Discover creativity, graphics and design ideas.</p>
+    </div>
+
+    <div class="card">
+      <div class="emoji">📱</div>
+      <h3>Digital Skills</h3>
+      <p>Build useful skills for the modern digital age.</p>
+    </div>
+  </div>
 </section>
 
-<section class="cta">
-  <h2>Ready to Explore?</h2>
-  <p>Start learning something new today.</p>
-  <a href="resources.html" class="btn">Explore Resources →</a>
+<section id="resources">
+  <h2 class="section-title">Resources</h2>
+  <p class="section-intro">Explore helpful information and materials.</p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="emoji">📖</div>
+      <h3>Learning Materials</h3>
+      <p>Find information to support your learning journey.</p>
+    </div>
+
+    <div class="card">
+      <div class="emoji">💡</div>
+      <h3>Ideas & Tips</h3>
+      <p>Discover useful ideas, advice and inspiration.</p>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🌍</div>
+      <h3>Useful Links</h3>
+      <p>Explore helpful websites and online resources.</p>
+    </div>
+  </div>
 </section>
+
+<section id="contact">
+  <h2 class="section-title">Contact Us</h2>
+  <p class="section-intro">We would love to hear from you.</p>
+
+  <div class="contact">
+    <p>Have a question, suggestion or idea?</p>
+    <p>Get in touch and let's connect!</p>
+    <a href="mailto:your-email@example.com" class="btn">
+      Send Us an Email
+    </a>
+  </div>
+</section>
+
+</main>
 
 <footer>
-  <p>© 2026 Digital World. All Rights Reserved.</p>
-  <p>Learn Today. Innovate Tomorrow.</p>
+  <p>© 2026 My Website. All Rights Reserved.</p>
+  <p>Designed with creativity and passion.</p>
 </footer>
 
 </body>
